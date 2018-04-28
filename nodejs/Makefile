@@ -3,8 +3,6 @@ CPP_OSX := -stdlib=libc++ -mmacosx-version-min=10.7 -undefined dynamic_lookup
 
 default:
 	make targets
-	NODE=targets/node-v6.14.1 ABI=48 make `(uname -s)`
-	NODE=targets/node-v7.10.1 ABI=51 make `(uname -s)`
 	NODE=targets/node-v8.11.1 ABI=57 make `(uname -s)`
 	NODE=targets/node-v9.10.1 ABI=59 make `(uname -s)`
 	NODE=targets/node-v10.0.0 ABI=64 make `(uname -s)`	
@@ -17,8 +15,6 @@ default:
 	for f in dist/*.node; do chmod +x $$f; done
 targets:
 	mkdir targets
-	curl https://nodejs.org/dist/v6.14.1/node-v6.14.1-headers.tar.gz | tar xz -C targets
-	curl https://nodejs.org/dist/v7.10.1/node-v7.10.1-headers.tar.gz | tar xz -C targets
 	curl https://nodejs.org/dist/v8.11.1/node-v8.11.1-headers.tar.gz | tar xz -C targets
 	curl https://nodejs.org/dist/v9.10.1/node-v9.10.1-headers.tar.gz | tar xz -C targets
 	curl https://nodejs.org/dist/v10.0.0/node-v10.0.0-headers.tar.gz | tar xz -C targets	
